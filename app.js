@@ -41,9 +41,12 @@ mystream.on('data',function (chunk) {
  });
 
  app.get('/response',function (req,res) {
-     res.sendFile(`${__dirname}/response.html`);
+    
+     arr=req.query.arr;
+     res.send(arr);
  });
 
-app.post('/response?',function(req,res){
-
-});
+port=3000||process.env.PORT;
+app.listen(port,function(req,res){
+    console.log("server is listening");
+})
